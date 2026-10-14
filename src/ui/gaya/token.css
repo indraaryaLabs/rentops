@@ -1,0 +1,192 @@
+/* ==========================================================================
+   RentOps — token desain
+   Bahasa visual: "ruang kendali" (control room).
+   Netral hangat di terang, grafit pekat di gelap. Satu aksen (petrol) untuk
+   interaksi; warna lain hanya untuk status. Tipografi: Inter untuk UI,
+   IBM Plex Mono untuk kode, angka dan label kecil.
+   ========================================================================== */
+
+/* ---------- Font lokal (tanpa permintaan jaringan saat runtime) ---------- */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../assets/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../../assets/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../assets/fonts/plex-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../assets/fonts/plex-mono-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------- Token ---------- */
+
+:root {
+  /* Radius & gerak */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 9px;
+  --r-lg: 13px;
+  --r-xl: 18px;
+  --r-full: 999px;
+
+  --gerak: 140ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --gerak-lama: 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Skala spasi 4px */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 56px;
+  --s-10: 72px;
+
+  --font-ui: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --lebar-rail: 236px;
+  --lebar-rail-tipis: 60px;
+  --tinggi-bilah: 52px;
+
+  /* Padding vertikal dikendalikan oleh mode kepadatan */
+  --pad-sel: var(--s-4);
+  --pad-baris: 11px;
+  --tinggi-baris: 38px;
+}
+
+/* ---------- Tema terang (default) ---------- */
+:root,
+:root[data-tema='terang'] {
+  color-scheme: light;
+
+  --latar: #f6f5f2;
+  --latar-tua: #eeece7;
+  --permukaan: #ffffff;
+  --permukaan-2: #faf9f7;
+  --permukaan-3: #f3f2ee;
+  --permukaan-terbalik: #16181d;
+
+  --garis: #e6e4de;
+  --garis-kuat: #d5d2ca;
+  --garis-halus: #efede8;
+
+  --teks: #16181d;
+  --teks-2: #4a4f58;
+  --teks-3: #767c86;
+  --teks-4: #9aa0aa;
+
+  --aksen: #0d6b5e;
+  --aksen-2: #0a554b;
+  --aksen-lembut: #e2f0ec;
+  --aksen-garis: #b9dcd4;
+  --aksen-teks: #0a554b;
+  --aksen-kontras: #ffffff;
+
+  --sukses: #0f7a52;
+  --sukses-lembut: #e4f4ec;
+  --sukses-garis: #b9e0cd;
+  --peringatan: #9a5b06;
+  --peringatan-lembut: #fbf0dd;
+  --peringatan-garis: #eeddbb;
+  --bahaya: #b3241c;
+  --bahaya-lembut: #fdecea;
+  --bahaya-garis: #f3ccc8;
+  --info: #1f5fa8;
+  --info-lembut: #e8f0fb;
+  --info-garis: #c7daf4;
+
+  --bayang-1: 0 1px 1px rgba(20, 22, 26, 0.04), 0 1px 2px rgba(20, 22, 26, 0.03);
+  --bayang-2: 0 2px 6px rgba(20, 22, 26, 0.06), 0 12px 28px rgba(20, 22, 26, 0.07);
+  --bayang-3: 0 24px 64px rgba(20, 22, 26, 0.18);
+
+  --sorotan: rgba(13, 107, 94, 0.16);
+}
+
+/* ---------- Tema gelap ---------- */
+:root[data-tema='gelap'] {
+  color-scheme: dark;
+
+  --latar: #0d0e11;
+  --latar-tua: #08090b;
+  --permukaan: #14161a;
+  --permukaan-2: #191b20;
+  --permukaan-3: #1f2228;
+  --permukaan-terbalik: #f6f5f2;
+
+  --garis: #262930;
+  --garis-kuat: #33373f;
+  --garis-halus: #1d2026;
+
+  --teks: #eceef1;
+  --teks-2: #b9bec7;
+  --teks-3: #868d99;
+  --teks-4: #666d78;
+
+  --aksen: #3fbf9f;
+  --aksen-2: #57d4b4;
+  --aksen-lembut: #10241f;
+  --aksen-garis: #1d453a;
+  --aksen-teks: #6fe0c3;
+  --aksen-kontras: #06231d;
+
+  --sukses: #47c98d;
+  --sukses-lembut: #0f2620;
+  --sukses-garis: #1d4a3a;
+  --peringatan: #e0a24a;
+  --peringatan-lembut: #2a2013;
+  --peringatan-garis: #4d3a1e;
+  --bahaya: #f07a70;
+  --bahaya-lembut: #2b1715;
+  --bahaya-garis: #552b26;
+  --info: #6aa9ee;
+  --info-lembut: #131f2e;
+  --info-garis: #24405f;
+
+  --bayang-1: 0 1px 1px rgba(0, 0, 0, 0.4);
+  --bayang-2: 0 2px 8px rgba(0, 0, 0, 0.44), 0 16px 32px rgba(0, 0, 0, 0.34);
+  --bayang-3: 0 28px 72px rgba(0, 0, 0, 0.6);
+
+  --sorotan: rgba(63, 191, 159, 0.18);
+}
+
+/* ---------- Mode rapat ---------- */
+:root[data-kepadatan='rapat'] {
+  --pad-sel: var(--s-3);
+  --pad-baris: 7px;
+  --tinggi-baris: 32px;
+}

@@ -1,0 +1,8 @@
+# Normalise line endings so diffs stay clean across operating systems.
+* text=auto eol=lf
+
+# Binary assets must never be touched by the text filters above.
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.ico binary
